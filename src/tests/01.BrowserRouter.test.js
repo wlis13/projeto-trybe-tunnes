@@ -1,10 +1,16 @@
-import { screen, waitFor} from '@testing-library/react';
+/* eslint-disable quotes */
+/* eslint-disable function-paren-newline */
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable max-len */
+/* eslint-disable comma-dangle */
+/* eslint-disable indent */
+import { screen, waitFor } from '@testing-library/react';
 
 import * as musicsAPI from '../services/musicsAPI';
 import renderPath from './helpers/renderPath';
 import { defaultUser, musicAPIDefaultResponse } from './mocks';
 
-
+// eslint-disable-next-line react-func/max-lines-per-function
 describe('1 - Crie as rotas necessárias para a aplicação', () => {
   beforeEach(() => {
     localStorage.setItem('user', JSON.stringify(defaultUser));
@@ -21,7 +27,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
         { timeout: 3000 }
       );
-        
+
       expect(screen.getByTestId('page-login')).toBeInTheDocument();
   });
 
@@ -33,7 +39,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3000 }
     );
-      
+
     expect(screen.getByTestId('page-search')).toBeInTheDocument();
   });
 
@@ -50,7 +56,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3500 }
     );
-      
+
     expect(screen.getByTestId('page-album')).toBeInTheDocument();
   });
 
@@ -64,7 +70,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3000 }
     );
-      
+
     expect(screen.getByTestId('page-favorites')).toBeInTheDocument();
   });
 
@@ -76,7 +82,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3000 }
     );
-      
+
     expect(screen.getByTestId('page-profile')).toBeInTheDocument();
   });
 
@@ -88,7 +94,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3000 }
     );
-      
+
     expect(screen.getByTestId('page-profile-edit')).toBeInTheDocument();
   });
 
@@ -100,7 +106,7 @@ describe('1 - Crie as rotas necessárias para a aplicação', () => {
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
       { timeout: 3000 }
     );
-      
+
     expect(screen.getByTestId('page-not-found')).toBeInTheDocument();
   });
 });
