@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Mensagem from './mensagem';
 
@@ -26,6 +27,11 @@ class Header extends Component {
         Componente Header
         <p>{maisUm ? <Mensagem /> : null}</p>
         <p data-testid="header-user-name">{`Usuário: ${returnName}`}</p>
+        <nav>
+          <Link data-testid="link-to-search" to="/search">Pesquisa</Link>
+          <Link data-testid="link-to-favorites" to="/favorites">Músicas Favoritas</Link>
+          <Link data-testid="link-to-profile" to="/profile">Exibir Perfil</Link>
+        </nav>
       </header>
     );
   }

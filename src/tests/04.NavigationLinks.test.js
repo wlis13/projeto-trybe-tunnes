@@ -1,4 +1,12 @@
-import { 
+/* eslint-disable max-lines */
+/* eslint-disable max-len */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable comma-dangle */
+/* eslint-disable quotes */
+/* eslint-disable react-func/max-lines-per-function */
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable function-paren-newline */
+import {
   screen,
   waitFor
 } from '@testing-library/react';
@@ -6,8 +14,7 @@ import userEvent from '@testing-library/user-event';
 
 import * as musicsAPI from '../services/musicsAPI';
 import renderPath from './helpers/renderPath';
-import { defaultUser, musicAPIDefaultResponse} from './mocks';
-
+import { defaultUser, musicAPIDefaultResponse } from './mocks';
 
 describe('4 - Crie os links de navegação no cabeçalho', () => {
   beforeEach(() => {
@@ -70,7 +77,7 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
 
       expect(window.location.pathname).toBe('/profile');
     });
-    
+
   // Album page
   it('Será validado se os links de navegação são exibidos na página do álbum',
     async () => {
@@ -260,7 +267,7 @@ describe('4 - Crie os links de navegação no cabeçalho', () => {
       expect(window.location.pathname).toBe('/favorites');
     });
 
-  // Edit profile page  
+  // Edit profile page
   it('Será validado se os links de navegação são exibidos na página de edição do perfil',
     async () => {
       renderPath("/profile/edit");
