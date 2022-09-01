@@ -1,13 +1,22 @@
-import { 
+/* eslint-disable react-func/max-lines-per-function */
+/* eslint-disable quotes */
+/* eslint-disable function-paren-newline */
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable max-len */
+/* eslint-disable padded-blocks */
+import {
   screen,
   waitFor,
-  waitForElementToBeRemoved 
+  waitForElementToBeRemoved,
 } from '@testing-library/react';
 
 import * as userAPI from '../services/userAPI';
 import * as musicsAPI from '../services/musicsAPI';
 import renderPath from './helpers/renderPath';
-import { defaultUser, musicAPIDefaultResponse} from './mocks';
+import { defaultUser, musicAPIDefaultResponse } from './mocks';
 
 describe('3 - Crie um componente de cabeçalho', () => {
   beforeEach(() => {
@@ -27,7 +36,8 @@ describe('3 - Crie um componente de cabeçalho', () => {
         { timeout: 3000 }
       );
 
-      expect(screen.getByTestId("header-component")).toBeInTheDocument();  
+      // eslint-disable-next-line sonarjs/no-duplicate-string
+      expect(screen.getByTestId("header-component")).toBeInTheDocument();
     });
 
   it('Será validado se o componente Header é renderizado na página /album/:id',
@@ -42,18 +52,18 @@ describe('3 - Crie um componente de cabeçalho', () => {
         { timeout: 3000 }
       );
 
-      expect(screen.getByTestId("header-component")).toBeInTheDocument();  
-    });   
-    
+      expect(screen.getByTestId("header-component")).toBeInTheDocument();
+    });
+
   it('Será validado se o componente Header é renderizado na página /favorites',
     async () => {
       renderPath("/favorites");
-  
+
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
         { timeout: 3000 }
       );
-  
+
       expect(screen.getByTestId("header-component")).toBeInTheDocument();
     });
 
@@ -100,7 +110,7 @@ describe('3 - Crie um componente de cabeçalho', () => {
       renderPath("/search");
 
       expect(screen.getByText('Carregando...')).toBeInTheDocument();
-      
+
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
         { timeout: 3000 },
@@ -123,5 +133,5 @@ describe('3 - Crie um componente de cabeçalho', () => {
 
       expect(headerUserName.textContent).toContain('User Test');
     });
-    
+
 });
