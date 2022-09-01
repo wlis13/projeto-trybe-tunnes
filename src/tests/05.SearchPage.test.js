@@ -1,3 +1,7 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable quotes */
+/* eslint-disable max-len */
+/* eslint-disable function-paren-newline */
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -11,7 +15,7 @@ describe('5 - Crie o formulário para pesquisar artistas', () => {
   });
 
   afterEach(() => localStorage.clear());
-  
+
   it('Será validado se ao navegar para a rota /search, o input e o botão estão presentes na tela',
     async () => {
       renderPath("/search");
