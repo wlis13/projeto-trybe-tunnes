@@ -29,7 +29,7 @@ class Login extends Component {
   theName = async () => {
     const { nameUser } = this.state;
     this.setState({ signal: true });
-    await createUser({ nameUser });
+    await createUser({ name: nameUser });
     this.setState({ signal: false, redirection: true });
   };
 
