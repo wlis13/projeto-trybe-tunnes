@@ -15,7 +15,7 @@ class Render extends Component {
         <p>{releaseDate}</p>
         <Link
           data-testid={ `link-to-album-${collectionId}` }
-          to={ { pathname: `/album/${collectionId}` } }
+          to={ `/album/${collectionId}` }
         >
           Informações
         </Link>
