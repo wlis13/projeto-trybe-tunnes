@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable react-func/max-lines-per-function */
+/* eslint-disable max-len */
+/* eslint-disable comma-dangle */
 import { act, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
