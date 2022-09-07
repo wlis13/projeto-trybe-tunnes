@@ -1,3 +1,12 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable padded-blocks */
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable function-paren-newline */
+/* eslint-disable comma-dangle */
+/* eslint-disable quotes */
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable max-len */
+/* eslint-disable react-func/max-lines-per-function */
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -39,7 +48,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
       );
-      
+
       const spy = jest.spyOn(favoriteSongsAPI, 'addSong');
 
       renderPath("/album/123");
@@ -64,7 +73,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
       );
-      
+
       renderPath("/album/123");
 
       await waitFor(
@@ -88,7 +97,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
       );
-      
+
 
       renderPath("/album/123");
 
