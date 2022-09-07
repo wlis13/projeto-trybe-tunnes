@@ -21,7 +21,6 @@ class Header extends Component {
 
   render() {
     const { returnName, maisUm } = this.state;
-
     return (
       <header data-testid="header-component">
         Componente Header

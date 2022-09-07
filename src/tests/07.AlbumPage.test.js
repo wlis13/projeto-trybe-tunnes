@@ -1,3 +1,9 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable comma-dangle */
+/* eslint-disable max-len */
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable react-func/max-lines-per-function */
+/* eslint-disable quotes */
 import { screen, waitFor } from '@testing-library/react';
 
 import * as musicsAPI from '../services/musicsAPI';
@@ -22,6 +28,7 @@ describe('7 - Crie a lista de músicas do álbum selecionado', () => {
 
     await waitFor(
       () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
+      // eslint-disable-next-line comma-dangle
       { timeout: 3000 }
     );
 
@@ -41,11 +48,11 @@ describe('7 - Crie a lista de músicas do álbum selecionado', () => {
       { timeout: 3000 }
     );
 
-    const artistNameElement = screen.getByTestId('artist-name'); 
+    const artistNameElement = screen.getByTestId('artist-name');
     expect(artistNameElement).toBeInTheDocument();
     expect(artistNameElement).toHaveTextContent("Artist Name");
 
-    const albumNameElement = screen.getByTestId('album-name'); 
+    const albumNameElement = screen.getByTestId('album-name');
     expect(albumNameElement).toBeInTheDocument();
     expect(albumNameElement).toHaveTextContent("Collection Name");
   });
