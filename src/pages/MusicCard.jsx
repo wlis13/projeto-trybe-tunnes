@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Mensagem from '../components/mensagem';
 
 class MusicCard extends Component {
-  state = {
-    message: false,
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      getFavoritas: [],
+      message: false,
+    };
+  }
+
+  async componentDidMount() {
+    this.setState({ message: true });
+    const favorites = await getFavoriteSongs();
+    this.setState({ message: false });
+    this.setState({
+      getFavoritas: favorites,
+    });
+  }
 
   favoriteSong = async () => {
     const { objectFunction } = this.props;
+    console.log(objectFunction);
     this.setState({ message: true });
     await addSong(objectFunction);
     this.setState({ message: false });
@@ -17,7 +32,7 @@ class MusicCard extends Component {
 
   render() {
     const { previewUrl, trackName, trackId } = this.props;
-    const { message } = this.state;
+    const { message, getFavoritas } = this.state;
     return (
       <div>
         <p>{trackName}</p>
@@ -32,6 +47,8 @@ class MusicCard extends Component {
             name="checkbox"
             id="input-checkbox"
             onClick={ this.favoriteSong }
+            onChange={ this.componentDidMount }
+            checked={ getFavoritas.some((itens) => itens.trackId === trackId) }
           />
           Favorita
         </label>
@@ -44,14 +61,10 @@ class MusicCard extends Component {
 export default MusicCard;
 
 MusicCard.propTypes = {
-  previewUrl: PropTypes.shape({
-  }).isRequired,
+  previewUrl: PropTypes.string.isRequired,
   trackName: PropTypes.string.isRequired,
-  trackId: PropTypes.string.isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired,
+  objectFunction: PropTypes.shape({
+    trackId: PropTypes.number.isRequired,
   }).isRequired,
-  objectFunction: PropTypes.shape({}).isRequired,
+  trackId: PropTypes.number.isRequired,
 };

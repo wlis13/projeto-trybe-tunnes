@@ -1,4 +1,12 @@
-import { 
+/* eslint-disable padded-blocks */
+/* eslint-disable indent */
+/* eslint-disable quotes */
+/* eslint-disable comma-dangle */
+/* eslint-disable function-paren-newline */
+/* eslint-disable no-multiple-empty-lines */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable max-len */
+import {
   screen,
   waitFor,
 } from '@testing-library/react';
@@ -6,7 +14,7 @@ import {
 import * as musicsAPI from '../services/musicsAPI';
 import * as favoriteSongsAPI from '../services/favoriteSongsAPI';
 import renderPath from './helpers/renderPath';
-import { 
+import {
   defaultUser,
   musicAPIDefaultResponse,
   favoriteSongsList
