@@ -4,14 +4,10 @@ import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Mensagem from '../components/mensagem';
 
 class MusicCard extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      getFavoritas: [],
-      message: false,
-    };
-  }
+  state = {
+    getFavoritas: [],
+    message: false,
+  };
 
   async componentDidMount() {
     this.setState({ message: true });
@@ -22,10 +18,10 @@ class MusicCard extends Component {
     });
   }
 
-  favoriteSong = async () => {
-    const { objectFunction } = this.props;
-    console.log(objectFunction);
+  Songs = async (event) => {
+    event.target.checked = true;
     this.setState({ message: true });
+    const { objectFunction } = this.props;
     await addSong(objectFunction);
     this.setState({ message: false });
   };
@@ -35,6 +31,7 @@ class MusicCard extends Component {
     const { message, getFavoritas } = this.state;
     return (
       <div>
+        {message ? <Mensagem /> : null}
         <p>{trackName}</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
@@ -44,15 +41,12 @@ class MusicCard extends Component {
           <input
             data-testid={ `checkbox-music-${trackId}` }
             type="checkbox"
-            name="checkbox"
             id="input-checkbox"
-            onClick={ this.favoriteSong }
-            onChange={ this.componentDidMount }
-            checked={ getFavoritas.some((itens) => itens.trackId === trackId) }
+            checked={ getFavoritas.find((itens) => itens.trackId === trackId) }
+            onClick={ this.Songs }
           />
           Favorita
         </label>
-        {message ? <Mensagem /> : null}
       </div>
     );
   }
